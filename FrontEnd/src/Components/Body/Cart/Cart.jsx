@@ -16,7 +16,7 @@ function Cart({ setNavQuantity, setTotal }) {
       if (token) {
         try {
           const resp = await axios.get(
-            `http://localhost:4000/cart_data/${token}`
+            `https://cakeshop-api-o8x3.onrender.com/cart_data/${token}`
           );
           setData(resp.data.message);
           const sum = resp.data.message.reduce(
@@ -46,7 +46,7 @@ function Cart({ setNavQuantity, setTotal }) {
       try {
         const requests = data.map(async (item) => {
           const response = await axios.get(
-            `http://localhost:4000/cakes_data/${item.cake_id}`
+            `https://cakeshop-api-o8x3.onrender.com/cakes_data/${item.cake_id}`
           );
           return response.data;
         });
@@ -67,7 +67,7 @@ function Cart({ setNavQuantity, setTotal }) {
 
   const handleIncrement = async (id, qty) => {
     const update_quantity = await axios.put(
-      `http://localhost:4000/cartupdate/${id}`,
+      `https://cakeshop-api-o8x3.onrender.com/cartupdate/${id}`,
       { quantity: qty + 1 }
     );
     const updatedData = data.map((item) => {
@@ -83,7 +83,7 @@ function Cart({ setNavQuantity, setTotal }) {
   const handleDecrement = async (id, qty) => {
     if (qty > 1) {
       const update_quantity = await axios.put(
-        `http://localhost:4000/cartupdate/${id}`,
+        `https://cakeshop-api-o8x3.onrender.com/cartupdate/${id}`,
         { quantity: qty - 1 }
       );
       const updatedData = data.map((item) => {
@@ -99,7 +99,7 @@ function Cart({ setNavQuantity, setTotal }) {
 
   const handleRemove = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/cart_delete/${id}`);
+      await axios.delete(`https://cakeshop-api-o8x3.onrender.com/cart_delete/${id}`);
     } catch (e) {
       console.log(e);
     }

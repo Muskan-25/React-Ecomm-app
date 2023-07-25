@@ -83,6 +83,16 @@
 .MuiAccordionSummary-expandIconWrapper{
   color:#5fcac7;
 }
+
+.ordersData{
+  font-family: 'Poppins' !important;
+}
+
+.ordersDataHeading{
+  font-family: 'Poppins' !important;
+  font-weight: 800 !important;
+}
+
 @media screen and (max-width:1390px) {
   .partnerLogo img{
     width: 118px;

@@ -64,7 +64,7 @@ function Checkout({ total, setNavQuantity}) {
         }
 
         const cartId = (
-          await axios.get(`http://localhost:4000/cart_data/${token}`)
+          await axios.get(`https://cakeshop-api-o8x3.onrender.com/cart_data/${token}`)
         ).data.message.map((item) => {
           return item;
         });
@@ -73,7 +73,7 @@ function Checkout({ total, setNavQuantity}) {
         for (let i = 0; i < cartId.length; i++) {
           const cakename = (
             await axios.get(
-              `http://localhost:4000/cakes_data/${cartId[i].cake_id}`
+              `https://cakeshop-api-o8x3.onrender.com/cakes_data/${cartId[i].cake_id}`
             )
           ).data.map((item) => {
             return item.cake_name;
@@ -95,13 +95,13 @@ function Checkout({ total, setNavQuantity}) {
         };
 
         const resp = await axios.post(
-          `http://localhost:4000/orders_post`,
+          `https://cakeshop-api-o8x3.onrender.com/orders_post`,
           formData
         );
         if(resp.data.message === 'success'){
             const cart_id_array= cartId.map((cart)=>{return cart._id});
             const cart_id = cart_id_array.map(async(item)=>{
-                const resp = await axios.delete(`http://localhost:4000/cart_delete/${item}`);
+                const resp = await axios.delete(`https://cakeshop-api-o8x3.onrender.com/cart_delete/${item}`);
                 if(resp.data.message === 'success'){
                     Swal.fire({
                         icon: 'success',

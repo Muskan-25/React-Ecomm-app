@@ -25,3 +25,7 @@ a{
 ::-webkit-scrollbar-thumb{
   background-color: #5fcac7 !important;
 }
+/* Customize the horizontal scrollbar */
+::-webkit-scrollbar:horizontal {
+  height: 5px !important;
+}

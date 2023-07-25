@@ -17,6 +17,7 @@ import Cart from "./Components/Body/Cart/Cart";
 import Admin from "./Components/Body/Admin/Admin";
 import Banner from "./Components/Body/Banner";
 import Checkout from "./Components/Body/Checkout/Checkout";
+import Orders from "./Components/Body/Orders/Orders";
 
 export let handleLogout ;
 function App() {
@@ -73,6 +74,7 @@ function App() {
 
         {/*-------------------Admin--------------- */}
         <Route path="/cakeshop/admin" element={<Admin/>}></Route>
+        <Route path="/cakeshop/orders" element={<Orders/>}></Route>
       </Routes>
       <Footerr />
     </div>

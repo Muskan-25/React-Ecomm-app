@@ -12,7 +12,7 @@ function OurMenu() {
     const fetchItems = async () => {
       try {
         setLoading(true);
-        const resp = await axios.get("http://localhost:4000/cakes_data/");
+        const resp = await axios.get("https://cakeshop-api-o8x3.onrender.com/cakes_data/");
         setLoading(false);
         setItems(resp.data);
       } catch (e) {

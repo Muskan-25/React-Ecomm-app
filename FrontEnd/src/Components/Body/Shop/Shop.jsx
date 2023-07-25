@@ -26,7 +26,7 @@ function Shop() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:4000/cakes_data");
+        const response = await axios.get("https://cakeshop-api-o8x3.onrender.com/cakes_data");
         setLoading(false);
         setData(response.data);
       } catch (e) {
@@ -45,7 +45,7 @@ function Shop() {
           cake_id,
           quantity: 1,
         };
-        const req_cartDetails = await axios.post("http://localhost:4000/cart/", cartDetails);
+        const req_cartDetails = await axios.post("https://cakeshop-api-o8x3.onrender.com/cart/", cartDetails);
         if(req_cartDetails.data.message === "success"){
           setSnackbar({
             open: true,
@@ -55,7 +55,7 @@ function Shop() {
         }else if(req_cartDetails.data.message === "item already exists."){
           const existing_item_id = req_cartDetails.data.existing_item._id;
           const qty = req_cartDetails.data.existing_item.quantity+1;
-          const updateCart = await axios.put(`http://localhost:4000/cartupdate/${existing_item_id}`,{quantity:qty});
+          const updateCart = await axios.put(`https://cakeshop-api-o8x3.onrender.com/cartupdate/${existing_item_id}`,{quantity:qty});
           if(updateCart.data.message === "success"){
             setSnackbar({
               open: true,

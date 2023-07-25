@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import Form from "../Form";
 import axios from "axios";
 import SnackBar from "../../SnackBar";
@@ -83,7 +83,7 @@ function Admin() {
 
     try {
       setUploading(true);
-      await axios.post("http://localhost:4000/cakes", formData);
+      await axios.post("https://cakeshop-api-o8x3.onrender.com/cakes", formData);
       const interval = setInterval(() => {
         setProgress((prevProgress) => {
           if (prevProgress >= 100) {
@@ -115,6 +115,16 @@ function Admin() {
           padding: { sm: "50px 10%", xs: "50px 15px" },
         }}
       >
+        <Typography
+          sx={{
+            fontFamily: "Poppins !important",
+            fontSize: "25px",
+            color: "#5fcac7",
+            fontWeight: "900",
+          }}
+        >
+          Add New Cake Product
+        </Typography>
         {uploading ? (
           <UploadProgress uploading={uploading} progress={progress} />
         ) : (
@@ -128,7 +138,7 @@ function Admin() {
             submit={handleSubmit}
           />
         )}
-
+        <Button sx={{color:'#000',fontFamily:'Poppins !important'}} onClick={()=>navigate('../cakeshop/orders')}>Click here to View Orders</Button>
         <SnackBar
           open={snackbar.open}
           message={snackbar.message}

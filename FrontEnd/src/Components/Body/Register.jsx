@@ -82,7 +82,7 @@ function Login() {
       password: values[3],
     };
     try {
-      const resp = await axios.post("http://localhost:4000/register", formData);
+      const resp = await axios.post("https://cakeshop-api-o8x3.onrender.com/register", formData);
       console.log(resp.data.message);
 
       if (resp.data.message == "success") {
